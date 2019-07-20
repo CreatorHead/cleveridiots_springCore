@@ -11,8 +11,8 @@ public class UserConfiguration {
 	@Bean(name="user")
 	public User getUser(){
 		User u = new User();
-		u.setFirstName("Aatish");
-		u.setLastName("Azad");
+		u.setFirstName("Abc");
+		u.setLastName("xyz");
 		u.setUserId(1);
 		u.setPassword("root");
 		return u;

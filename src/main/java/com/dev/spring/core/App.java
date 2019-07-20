@@ -1,11 +1,11 @@
 package com.dev.spring.core;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.dev.spring.core.beans.User;
-import com.dev.spring.core.config.UserConfiguration;
+import com.dev.spring.core.beans.Job;
+import com.dev.spring.core.beans.Person;
+import com.dev.spring.core.config.PersonConfig;
 
 /**
  * Hello world!
@@ -15,10 +15,15 @@ public class App
 {
     public static void main( String[] args )
     {
-        ApplicationContext ctx = 
-        		new AnnotationConfigApplicationContext(UserConfiguration.class);
-        User u = ctx.getBean(User.class,"user");
-        System.out.println(u);
-        
+       ApplicationContext ctx = 
+    		   new AnnotationConfigApplicationContext(PersonConfig.class);
+       Person p = ctx.getBean(Person.class,"person");
+       System.out.println(p.getName());
+       p.getJob().doJob();
+       
+       
+       
+       
+       
     }
 }
