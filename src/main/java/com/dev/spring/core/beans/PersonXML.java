@@ -1,9 +1,18 @@
 package com.dev.spring.core.beans;
 
-public class PersonXML {
+import org.springframework.beans.factory.DisposableBean;
+
+public class PersonXML implements DisposableBean {
 	private String name;
 	private Job job;
 	
+	public void init(){
+		System.out.println("Init Phase");
+	}
+	
+	public void bye(){
+		System.out.println("bye bye (destroy-method))");
+	}
 	public String getName() {
 		return name;
 	}
@@ -20,5 +29,9 @@ public class PersonXML {
 	@Override
 	public String toString() {
 		return "Person [name=" + name + ", job=" + job + "]";
+	}
+	@Override
+	public void destroy() throws Exception {
+		System.out.println("bye bye world (destroy())");
 	}
 }

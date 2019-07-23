@@ -10,12 +10,13 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 	
 	
-	<bean id="person" class="com.dev.spring.core.beans.PersonXML">
+	<bean id="person" class="com.dev.spring.core.beans.PersonXML" init-method="init" destroy-method="bye">
 		<property name="name" value="Aatish"/>
 		<property name="job" ref="job"/>
 	</bean>
 	
-	<bean id="job" class="com.dev.spring.core.beans.SoftwareDeveloperXML"/>
+	<bean id="job" 
+	class="com.dev.spring.core.beans.SoftwareDeveloperXML"/>
 	
 	
 </beans>

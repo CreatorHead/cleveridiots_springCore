@@ -1,28 +1,18 @@
 package com.dev.spring.core;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.dev.spring.core.beans.PersonXML;
+import com.dev.spring.core.config.PersonConfig;
 
-/**
- * Hello world!
- *
- */
 public class App 
 {
-    public static void main( String[] args )
-    {
-//       ApplicationContext ctx = 
-//    		   new AnnotationConfigApplicationContext(PersonConfig.class);
-    	ApplicationContext ctx = new ClassPathXmlApplicationContext("/config/PersonConfig.xml");
-    	PersonXML p = ctx.getBean(PersonXML.class,"person");
-       System.out.println(p.getName());
-       p.getJob().doJob();
-       
-       
-       
-       
-       
-    }
+	public static void main( String[] args )
+	{
+				AnnotationConfigApplicationContext ctx = 
+				    		   new AnnotationConfigApplicationContext(PersonConfig.class);
+//		ClassPathXmlApplicationContext ctx = 
+//				new ClassPathXmlApplicationContext("/config/PersonConfig.xml");
+		
+		ctx.close();
+	}
 }
